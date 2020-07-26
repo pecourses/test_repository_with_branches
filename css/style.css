@@ -1,22 +1,97 @@
-@import './reset.css';
+nav input[type="checkbox"] {
+    display: none;
+}
 
-.container{
+header {
+    background-color: rebeccapurple;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
-.child {
+.label {
+    display: none;
+}
+
+.logoImage {
     width: 200px;
-    height: 200px;
-    background-color: coral;
-    border: 2px solid red;
-    margin: 10px;
+    height: 100px;
+    object-fit: cover;
 }
 
-@media screen and (max-width: 768px){
+.navigationWrapper {
+    padding-left: 20px;
+    position: relative;
+}
 
-    .container {
+.navigationContainer {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+    font-size: 2rem;
+}
+
+.navigationContainer > li + li {
+    margin-left: 30px;
+}
+
+li:hover{
+    color: black;
+    background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+    header {
+        justify-content: flex-start;
+    }
+
+    .navigationContainer > li + li {
+        margin-left: 0px;
+    }
+
+    .navigationContainer {
+        display: none;
+    }
+
+    .navigationContainer > li {
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .navigationWrapper{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #toggle:checked ~ .navigationContainer {
+        display: flex;
         flex-direction: column;
+
+        min-height: 300px;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 80%;
+        background-color: grey;
+    }
+
+    .logoImage {
+        display: none;
+    }
+
+    .label {
+        display: block;
+    }
+
+    .label > img {
+        height: 40px;
+        width: 40px;
     }
 
 }
